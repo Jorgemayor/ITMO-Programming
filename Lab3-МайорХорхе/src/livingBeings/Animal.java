@@ -35,16 +35,18 @@ public class Animal implements Actions {
 
         Food food = null;
 
-        if(currentPlace.hasPlants())
-            for(Plant plant : currentPlace.getPlants())
-                if(plant.hasFruits()) {
-                    if(plant.getFruit().equals(preferredFood)) {
+        if(currentPlace.hasPlants()) {
+            for(Plant plant : currentPlace.getPlants()) {
+                if (plant.hasFruits()) {
+                    if (plant.getFruit().equals(preferredFood)) {
                         food = preferredFood;
                         break;
-                    } else if(food == null) {
+                    } else if (food == null) {
                         food = plant.getFruit();
                     }
                 }
+            }
+        }
 
         try {
             if(food == null)
@@ -83,7 +85,6 @@ public class Animal implements Actions {
         if(this.getName().equals("Piglet")) {
             throw new PigletException();
         }
-
         return this.sizeEatenFood > this.type.getBellySize();
     }
 }
