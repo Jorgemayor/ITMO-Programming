@@ -1,4 +1,6 @@
+import livingBeings.Animal;
 import livingBeings.Plant;
+import livingBeings.TypeAnimal;
 import livingBeings.TypePlants;
 import places.Place;
 
@@ -9,8 +11,10 @@ public class main {
 
     public static void main(String[] args) {
 
+        Place bosque = null;
+
         try {
-            Place bosque = new Place("bosque", new ArrayList<>() {
+            bosque = new Place("bosque", new ArrayList<>() {
                 {
                     new Plant(TypePlants.LEMON_TREE, "12/01/2022");
                     new Plant(TypePlants.MANGO_TREE, "12/01/2022");
@@ -24,7 +28,7 @@ public class main {
             System.out.print(exception.getMessage());
         }
 
-
+        Animal winnie = new Animal("Winnie", TypeAnimal.BEAR, bosque);
+        winnie.eats();
     }
-
 }
