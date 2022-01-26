@@ -24,7 +24,7 @@ public class Place extends AbstractPlace {
         ArrayList<Plant> placePlants = this.getPlants();
         ArrayList<Plant> placeObjectPlants = placeObject.getPlants();
 
-        return this.getName().equals(placeObject.getName()) &&
+        return this.toString().equals(placeObject.toString()) &&
                 this.getPlants().size() == placeObject.getPlants().size() &&
                 placePlants.equals(placeObjectPlants);
     }
