@@ -2,17 +2,15 @@ import livingBeings.Plant;
 import livingBeings.TypePlants;
 import places.Place;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class main {
 
     public static void main(String[] args) {
 
         try {
-            Place bosque = new Place("bosque", new ArrayList<Plant>() {
+            Place bosque = new Place("bosque", new ArrayList<>() {
                 {
                     new Plant(TypePlants.LEMON_TREE, "12/01/2022");
                     new Plant(TypePlants.MANGO_TREE, "12/01/2022");
