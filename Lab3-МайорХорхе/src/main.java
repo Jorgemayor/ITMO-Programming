@@ -1,7 +1,4 @@
-import livingBeings.Animal;
-import livingBeings.Plant;
-import livingBeings.TypeAnimal;
-import livingBeings.TypePlants;
+import livingBeings.*;
 import places.Place;
 
 import java.text.ParseException;
@@ -28,7 +25,14 @@ public class main {
             System.out.print(exception.getMessage());
         }
 
+        Place dessert = new Place("Dessert");
+
         Animal winnie = new Animal("Winnie", TypeAnimal.BEAR, bosque);
+        winnie.setMood(Mood.HUNGRY);
         winnie.eats();
+        winnie.setMood(Mood.HAPPY);
+        winnie.moves(dessert);
+        winnie.eats();
+        winnie.setMood(Mood.SAD);
     }
 }
