@@ -67,6 +67,14 @@ public class Animal implements Actions {
         return this.name;
     }
 
+    public TypeAnimal getType() {
+        return this.type;
+    }
+
+    public int getSizeEatenFood() {
+        return this.sizeEatenFood;
+    }
+
     public void buyCellphone() {
         this.cellphone = new Cellphone(this.getName());
         System.out.println(name + " now has a cellphone.");
@@ -91,5 +99,29 @@ public class Animal implements Actions {
             throw new PigletException();
         }
         return this.sizeEatenFood > this.type.getBellySize();
+    }
+
+    public String toString() {
+        return this.name;
+    }
+
+    public boolean equals(Object object) {
+        if(!(object instanceof Animal))
+            return false;
+        if(object == this)
+            return true;
+
+        Animal animal = (Animal) object;
+        return this.toString().equals(animal.toString()) &&
+                type.equals(animal.getType()) &&
+                sizeEatenFood == animal.getSizeEatenFood();
+    }
+
+    public int hashCode() {
+        int code = 0;
+        code += this.getName().hashCode() / 100;
+        code += this.getType().hashCode() >> 1;
+        code += sizeEatenFood;
+        return code;
     }
 }
