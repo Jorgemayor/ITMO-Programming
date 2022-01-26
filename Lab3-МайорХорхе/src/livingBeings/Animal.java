@@ -1,44 +1,79 @@
 package livingBeings;
 
+import exceptions.NoFoodException;
 import exceptions.PigletException;
 import places.Place;
+import things.Cellphone;
 import things.Food;
-import things.Thing;
-
-import java.util.ArrayList;
 
 public class Animal implements Actions {
 
-    private String name;
-    private TypeAnimal type;
+    private final String name;
+    private final TypeAnimal type;
     private Place currentPlace;
     private Mood mood;
-    private ArrayList<Thing> foodEated;
+    private final Food preferredFood;
+    private int sizeEatenFood;
+    private Cellphone cellphone;
 
     public Animal(String name, TypeAnimal type, Place currentPlace) {
         this.name = name;
         this.type = type;
         this.currentPlace = currentPlace;
-        foodEated = new ArrayList<>();
+        this.mood = Mood.NEUTRAL;
+        preferredFood = type.getPreferredFood();
+        sizeEatenFood = 0;
+        cellphone = null;
     }
 
     public void moves(Place place) {
-
         this.currentPlace = place;
     }
 
-    public void eats(Thing thing) {
-        if(!(thing instanceof Food)) {
-            System.out.print(this.name + "cannot eat a " + thing.getName());
+    public void eats() {
+
+        Place currentPlace = this.currentPlace;
+        Food food = null;
+        for(Plant plant : currentPlace.getPlants()) {
+
+            if(plant.hasFruits()) {
+                if(plant.getFruit().equals(preferredFood)) {
+                    food = preferredFood;
+                    break;
+                } else if(food == null) {
+                    food = plant.getFruit();
+                }
+            }
+        }
+
+        try {
+            if(food == null)
+                throw new NoFoodException();
+            sizeEatenFood += food.getSize();
+            System.out.println(name + " ate a(n) " + food + ".");
+        } catch (NoFoodException exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
     public void speaks(String message) {
-
+        System.out.println(this.name + " says \"" + message + "\".");
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public void buyCellphone() {
+        this.cellphone = new Cellphone(this.getName());
+    }
+
+    public boolean hasCellphone() {
+        return this.cellphone == null;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
     }
 
     public boolean isFat() throws PigletException {
@@ -47,11 +82,6 @@ public class Animal implements Actions {
             throw new PigletException();
         }
 
-        int sizeFoodEaten = 0;
-        for(Thing food : foodEated) {
-            sizeFoodEaten += food.getSize();
-        }
-
-        return sizeFoodEaten > this.type.getBellySize();
+        return this.sizeEatenFood > this.type.getBellySize();
     }
 }

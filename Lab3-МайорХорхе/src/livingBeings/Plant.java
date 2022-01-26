@@ -1,39 +1,43 @@
 package livingBeings;
 
-import exceptions.SproutedException;
+import things.Food;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class Plant {
 
-    private Date dateOfBirth;
-    private TypePlants type;
+    private final Date dateOfBirth;
+    private final TypePlants type;
 
-    public Plant(TypePlants type, Date dateOfBirth) {
-
+    public Plant(TypePlants type, String dateOfBirth) throws ParseException {
+        DateFormat format = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH);
         this.type = type;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = format.parse(dateOfBirth);
     }
 
-    public int getRemainingDaysToSprout() throws SproutedException {
+    public String toString() {
+        return type.toString();
+    }
+
+    public int getRemainingDaysToSprout() {
 
         Date date = new Date();
         long difference = date.getTime() - dateOfBirth.getTime();
         int days = (int) TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
         int daysToSprout = type.getDaysToSprout();
 
-        if(days >= daysToSprout) {
-            throw new SproutedException();
-        }
         return daysToSprout - days;
     }
 
-    public boolean hasFruits() throws SproutedException {
-        return this.getRemainingDaysToSprout() <= 0 && this.hasFruits();
+    public boolean hasFruits() {
+        return this.getRemainingDaysToSprout() <= 0 && this.type.hasFruits();
     }
 
-    public boolean hasFlowers() throws SproutedException {
-        return this.getRemainingDaysToSprout() <= 0 && this.hasFlowers();
+    public Food getFruit() {
+        return this.type.getFruit();
     }
 }
