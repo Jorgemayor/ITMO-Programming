@@ -7,7 +7,9 @@ public enum Mood {
     HAPPY("Happy"),
     SAD("Sad"),
     CONFUSED("Confused"),
-    THOUGHTFUL("Thoughtful");
+    THOUGHTFUL("Thoughtful"),
+    ANGRY("Angry"),
+    BORED("Bored");
 
     private final String name;
 
