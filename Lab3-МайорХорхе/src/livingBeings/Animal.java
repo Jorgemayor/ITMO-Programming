@@ -59,7 +59,7 @@ public class Animal implements Actions {
     }
 
     public void speaks(String message) {
-        System.out.println(this.name + " says \"" + message + "\".");
+        System.out.println(this.name + " said \"" + message + "\".");
     }
 
     public String getName() {

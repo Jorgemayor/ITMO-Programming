@@ -36,8 +36,12 @@ public class Plant {
         return daysToSprout - days;
     }
 
+    public boolean hasSprouted() {
+        return this.getRemainingDaysToSprout() <= 0;
+    }
+
     public boolean hasFruits() {
-        return this.getRemainingDaysToSprout() <= 0 && this.type.hasFruits();
+        return this.hasSprouted() && this.type.hasFruits();
     }
 
     public Food getFruit() {
