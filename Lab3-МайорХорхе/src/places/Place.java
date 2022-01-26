@@ -10,10 +10,6 @@ public class Place extends AbstractPlace {
         super(name);
     }
 
-    public Place(String name, ArrayList<Plant> plants) {
-        super(name, plants);
-    }
-
     public boolean equals(Object object) {
         if (!(object instanceof Place))
             return false;

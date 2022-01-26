@@ -14,11 +14,6 @@ public abstract class AbstractPlace {
         this.plants = new ArrayList<>();
     }
 
-    public AbstractPlace(String name, ArrayList<Plant> plants) {
-        this.name = name;
-        this.plants = plants;
-    }
-
     public String toString() {
         return this.name;
     }
