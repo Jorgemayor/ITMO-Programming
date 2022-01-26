@@ -1,7 +1,5 @@
 package livingBeings;
 
-import java.net.SocketAddress;
-
 public enum Mood {
 
     NEUTRAL("Neutral"),
@@ -17,9 +15,8 @@ public enum Mood {
         this.name = name;
     }
 
-    public String getFeeling() {
+    public String toString() {
         return this.name;
     }
-
 }
 

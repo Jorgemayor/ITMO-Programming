@@ -27,24 +27,24 @@ public class Animal implements Actions {
     }
 
     public void moves(Place place) {
+        System.out.println(name + " has gone from " + currentPlace.toString() + " to " + place.toString() + ".");
         this.currentPlace = place;
     }
 
     public void eats() {
 
-        Place currentPlace = this.currentPlace;
         Food food = null;
-        for(Plant plant : currentPlace.getPlants()) {
 
-            if(plant.hasFruits()) {
-                if(plant.getFruit().equals(preferredFood)) {
-                    food = preferredFood;
-                    break;
-                } else if(food == null) {
-                    food = plant.getFruit();
+        if(currentPlace.hasPlants())
+            for(Plant plant : currentPlace.getPlants())
+                if(plant.hasFruits()) {
+                    if(plant.getFruit().equals(preferredFood)) {
+                        food = preferredFood;
+                        break;
+                    } else if(food == null) {
+                        food = plant.getFruit();
+                    }
                 }
-            }
-        }
 
         try {
             if(food == null)
@@ -66,6 +66,7 @@ public class Animal implements Actions {
 
     public void buyCellphone() {
         this.cellphone = new Cellphone(this.getName());
+        System.out.print(name + " now has a cellphone.");
     }
 
     public boolean hasCellphone() {
@@ -74,6 +75,7 @@ public class Animal implements Actions {
 
     public void setMood(Mood mood) {
         this.mood = mood;
+        System.out.println(name + " is feeling " + mood.toString());
     }
 
     public boolean isFat() throws PigletException {
