@@ -21,7 +21,7 @@ public class Cellphone implements Thing {
 
         String callerName = caller.getName();
         String receiverName = receiver.getName();
-        System.out.print(callerName + " is callling " + receiverName + "...");
+        System.out.println(callerName + " is callling " + receiverName + "...");
 
         if(!receiver.hasCellphone()) {
             throw new NoCellphoneException(receiverName);
