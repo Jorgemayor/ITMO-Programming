@@ -2,10 +2,9 @@ package livingBeings;
 
 import things.Food;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class Plant {
@@ -14,9 +13,8 @@ public class Plant {
     private final TypePlants type;
 
     public Plant(TypePlants type, String dateOfBirth) throws ParseException {
-        DateFormat format = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH);
         this.type = type;
-        this.dateOfBirth = format.parse(dateOfBirth);
+        this.dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
     }
 
     public String toString() {
