@@ -2,16 +2,18 @@ package things;
 
 public enum Food implements Thing {
 
-    MANGO("Mango"),
-    ORANGE("Orange"),
-    LEMON("Lemon"),
-    HONEY("Honey"),
-    CARROT("Carrot");
+    MANGO("Mango", 1),
+    ORANGE("Orange", 1),
+    LEMON("Lemon", 3),
+    HONEY("Honey", 2),
+    CARROT("Carrot", 3);
 
     private final String name;
+    private final int size;
 
-    Food(String name) {
+    Food(String name, int size) {
         this.name = name;
+        this.size = size;
     }
 
     public String toString() {
@@ -19,6 +21,6 @@ public enum Food implements Thing {
     }
 
     public int getSize() {
-        return 0;
+        return this.size;
     }
 }
