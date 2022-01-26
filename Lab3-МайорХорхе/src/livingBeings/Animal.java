@@ -106,11 +106,8 @@ public class Animal implements Actions {
     }
 
     public boolean equals(Object object) {
-        if(!(object instanceof Animal))
-            return false;
-        if(object == this)
-            return true;
-
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
         Animal animal = (Animal) object;
         return this.toString().equals(animal.toString()) &&
                 type.equals(animal.getType()) &&

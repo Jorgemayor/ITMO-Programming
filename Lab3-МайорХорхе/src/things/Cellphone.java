@@ -3,6 +3,8 @@ package things;
 import exceptions.NoCellphoneException;
 import livingBeings.Animal;
 
+import java.util.Objects;
+
 public class Cellphone implements Thing {
 
     private final String userName;
@@ -44,5 +46,9 @@ public class Cellphone implements Thing {
 
         Cellphone cellphone = (Cellphone) object;
         return this.toString().equals(cellphone.toString());
+    }
+
+    public int hashCode() {
+        return Objects.hash(userName);
     }
 }

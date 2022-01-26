@@ -11,9 +11,9 @@ public class Place extends AbstractPlace {
     }
 
     public boolean equals(Object object) {
-        if (!(object instanceof Place))
+        if(!(object instanceof Place))
             return false;
-        if (object == this)
+        if(object == this)
             return true;
 
         Place placeObject = (Place) object;
@@ -23,5 +23,9 @@ public class Place extends AbstractPlace {
         return this.toString().equals(placeObject.toString()) &&
                 this.getPlants().size() == placeObject.getPlants().size() &&
                 placePlants.equals(placeObjectPlants);
+    }
+
+    public int hashCode() {
+        return super.hashCode();
     }
 }

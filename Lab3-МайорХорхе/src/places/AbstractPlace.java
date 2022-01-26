@@ -1,6 +1,7 @@
 package places;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import livingBeings.Plant;
 
@@ -31,4 +32,8 @@ public abstract class AbstractPlace {
     }
 
     public abstract boolean equals(Object object);
+
+    public int hashCode() {
+        return Objects.hash(name, plants);
+    }
 }
