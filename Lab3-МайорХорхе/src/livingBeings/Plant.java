@@ -12,6 +12,11 @@ public class Plant {
     private final Date dateOfBirth;
     private final TypePlants type;
 
+    public Plant(TypePlants type) {
+        this.type = type;
+        this.dateOfBirth = new Date();
+    }
+
     public Plant(TypePlants type, String dateOfBirth) throws ParseException {
         this.type = type;
         this.dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
