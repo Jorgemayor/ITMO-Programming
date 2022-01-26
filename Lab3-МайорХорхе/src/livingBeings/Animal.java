@@ -1,5 +1,6 @@
 package livingBeings;
 
+import exceptions.NoCellphoneException;
 import exceptions.NoFoodException;
 import exceptions.PigletException;
 import places.Place;
@@ -52,7 +53,7 @@ public class Animal implements Actions {
             if(food == null)
                 throw new NoFoodException();
             sizeEatenFood += food.getSize();
-            System.out.println(name + " ate a(n) " + food + ".");
+            System.out.println(name + " ate " + food + ".");
         } catch (NoFoodException exception) {
             System.out.println(exception.getMessage());
         }
@@ -68,16 +69,20 @@ public class Animal implements Actions {
 
     public void buyCellphone() {
         this.cellphone = new Cellphone(this.getName());
-        System.out.print(name + " now has a cellphone.");
+        System.out.println(name + " now has a cellphone.");
     }
 
     public boolean hasCellphone() {
-        return this.cellphone == null;
+        return this.cellphone != null;
     }
 
     public void setMood(Mood mood) {
         this.mood = mood;
-        System.out.println(name + " is feeling " + mood.toString());
+        System.out.println(name + " is feeling " + mood.toString() + ".");
+    }
+
+    public void call(Animal receiver, String message) throws NoCellphoneException {
+        cellphone.call(this, receiver, message);
     }
 
     public boolean isFat() throws PigletException {
