@@ -11,7 +11,7 @@ public class main {
     public static void main(String[] args) {
 
         Place forest = new Place("Forest");
-        Place dessert = new Place("Dessert");
+        Place desert = new Place("Desert");
         Place house = new Place("House");
         Place garden = new Place("Garden");
 
@@ -34,7 +34,7 @@ public class main {
 
         Animal winnie = new Animal("Winnie", TypeAnimal.BEAR, forest);
         Animal piglet = new Animal("Piglet", TypeAnimal.PIG, garden);
-        Animal robbin = new Animal("Robbin", TypeAnimal.HUMAN, forest);
+        Animal robin = new Animal("Robin", TypeAnimal.HUMAN, forest);
         Animal tigger = new Animal("tigger", TypeAnimal.TIGER, forest);
         Animal donkey = new Animal("Donkey", TypeAnimal.DONKEY, forest);
         Animal kanga = new Animal("Kanga", TypeAnimal.KANGAROO, forest);
@@ -47,7 +47,7 @@ public class main {
         winnie.setMood(Mood.HUNGRY);
         winnie.eats();
         winnie.setMood(Mood.HAPPY);
-        winnie.moves(dessert);
+        winnie.moves(desert);
         winnie.eats();
         winnie.setMood(Mood.SAD);
 
@@ -73,23 +73,23 @@ public class main {
         }
 
         System.out.println("\nSTORY 3:");
-        robbin.setMood(Mood.BORED);
+        robin.setMood(Mood.BORED);
         boolean callNotmade = true;
         while(callNotmade) {
-            if (robbin.hasCellphone()) {
+            if (robin.hasCellphone()) {
                 try {
-                    robbin.call(tigger, "Hi! Let's play outside.");
+                    robin.call(tigger, "Hi! Let's play outside.");
                     callNotmade = false;
                 } catch (NoCellphoneException exception) {
                     System.out.println(exception.getMessage());
-                    robbin.setMood(Mood.CONFUSED);
+                    robin.setMood(Mood.CONFUSED);
                     tigger.buyCellphone();
                 }
             } else {
-                robbin.buyCellphone();
+                robin.buyCellphone();
             }
         }
-        robbin.setMood(Mood.HAPPY);
+        robin.setMood(Mood.HAPPY);
 
         System.out.println("\nSTORY 4:");
         try {
