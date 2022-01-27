@@ -1,0 +1,3 @@
+-sourcepath src/
+-d build/classes
+--release 8
