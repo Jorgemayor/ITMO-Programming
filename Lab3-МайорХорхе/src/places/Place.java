@@ -1,6 +1,6 @@
 package places;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import livingBeings.Plant;
 
@@ -17,8 +17,8 @@ public class Place extends AbstractPlace {
             return true;
 
         Place placeObject = (Place) object;
-        ArrayList<Plant> placePlants = this.getPlants();
-        ArrayList<Plant> placeObjectPlants = placeObject.getPlants();
+        List<Plant> placePlants = this.getPlants();
+        List<Plant> placeObjectPlants = placeObject.getPlants();
 
         return this.toString().equals(placeObject.toString()) &&
                 this.getPlants().size() == placeObject.getPlants().size() &&

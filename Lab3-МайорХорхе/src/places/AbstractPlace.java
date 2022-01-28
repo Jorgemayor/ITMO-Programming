@@ -1,6 +1,7 @@
 package places;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import livingBeings.Plant;
@@ -8,7 +9,7 @@ import livingBeings.Plant;
 public abstract class AbstractPlace {
 
     private final String name;
-    private ArrayList<Plant> plants;
+    private List<Plant> plants;
 
     public AbstractPlace(String name) {
         this.name = name;
@@ -19,7 +20,7 @@ public abstract class AbstractPlace {
         return name;
     }
 
-    public ArrayList<Plant> getPlants() {
+    public List<Plant> getPlants() {
         return plants;
     }
 
