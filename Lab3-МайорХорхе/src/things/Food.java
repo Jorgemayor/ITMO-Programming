@@ -17,10 +17,10 @@ public enum Food implements Thing {
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 
     public int getSize() {
-        return this.size;
+        return size;
     }
 }

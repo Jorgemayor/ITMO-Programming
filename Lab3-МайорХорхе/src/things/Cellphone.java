@@ -37,7 +37,7 @@ public class Cellphone implements Thing {
     }
 
     public String toString() {
-        return this.userName;
+        return userName;
     }
 
     public boolean equals(Object object) {

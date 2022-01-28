@@ -16,7 +16,7 @@ public abstract class AbstractPlace {
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 
     public ArrayList<Plant> getPlants() {

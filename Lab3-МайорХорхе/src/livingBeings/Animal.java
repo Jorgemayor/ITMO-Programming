@@ -7,6 +7,8 @@ import places.Place;
 import things.Cellphone;
 import things.Food;
 
+import java.util.Objects;
+
 public class Animal implements Actions {
 
     private final String name;
@@ -21,7 +23,7 @@ public class Animal implements Actions {
         this.name = name;
         this.type = type;
         this.currentPlace = currentPlace;
-        this.mood = Mood.NEUTRAL;
+        mood = Mood.NEUTRAL;
         preferredFood = type.getPreferredFood();
         sizeEatenFood = 0;
         cellphone = null;
@@ -29,7 +31,7 @@ public class Animal implements Actions {
 
     public void moves(Place place) {
         System.out.println(name + " has gone from " + currentPlace.toString() + " to " + place.toString() + ".");
-        this.currentPlace = place;
+        currentPlace = place;
     }
 
     public void eats() {
@@ -60,28 +62,28 @@ public class Animal implements Actions {
     }
 
     public void speaks(String message) {
-        System.out.println(this.name + " said \"" + message + "\".");
+        System.out.println(name + " said \"" + message + "\".");
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public TypeAnimal getType() {
-        return this.type;
+        return type;
     }
 
     public int getSizeEatenFood() {
-        return this.sizeEatenFood;
+        return sizeEatenFood;
     }
 
     public void buyCellphone() {
-        this.cellphone = new Cellphone(this.getName());
+        cellphone = new Cellphone(name);
         System.out.println(name + " now has a cellphone.");
     }
 
     public boolean hasCellphone() {
-        return this.cellphone != null;
+        return cellphone != null;
     }
 
     public void setMood(Mood mood) {
@@ -95,14 +97,14 @@ public class Animal implements Actions {
 
     public boolean isFat() throws PigletException {
 
-        if(this.getName().equals("Piglet")) {
+        if(name.equals("Piglet")) {
             throw new PigletException();
         }
-        return this.sizeEatenFood > this.type.getBellySize();
+        return sizeEatenFood > type.getBellySize();
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 
     public boolean equals(Object object) {
@@ -115,10 +117,6 @@ public class Animal implements Actions {
     }
 
     public int hashCode() {
-        int code = 0;
-        code += this.getName().hashCode() / 100;
-        code += this.getType().hashCode() >> 1;
-        code += sizeEatenFood;
-        return code;
+        return Objects.hash(name, type, currentPlace, mood, preferredFood, sizeEatenFood, cellphone);
     }
 }

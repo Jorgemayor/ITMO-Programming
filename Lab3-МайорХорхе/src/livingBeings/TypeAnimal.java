@@ -23,15 +23,15 @@ public enum TypeAnimal {
         this.preferredFood = preferredFood;
     }
 
-    public String getName() {
-        return this.name;
+    public String toString() {
+        return name;
     }
 
     public int getBellySize() {
-        return this.bellySize;
+        return bellySize;
     }
 
     public Food getPreferredFood() {
-        return this.preferredFood;
+        return preferredFood;
     }
 }
