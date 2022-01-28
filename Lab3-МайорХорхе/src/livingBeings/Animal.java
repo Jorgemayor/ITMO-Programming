@@ -111,9 +111,13 @@ public class Animal implements Actions {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Animal animal = (Animal) object;
-        return this.toString().equals(animal.toString()) &&
-                type.equals(animal.getType()) &&
-                sizeEatenFood == animal.getSizeEatenFood();
+        return sizeEatenFood == animal.sizeEatenFood &&
+                Objects.equals(name, animal.name) &&
+                type == animal.type &&
+                Objects.equals(currentPlace, animal.currentPlace) &&
+                mood == animal.mood &&
+                preferredFood == animal.preferredFood &&
+                Objects.equals(cellphone, animal.cellphone);
     }
 
     public int hashCode() {
