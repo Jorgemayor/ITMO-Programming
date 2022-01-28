@@ -18,7 +18,7 @@ public enum Mood {
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 }
 

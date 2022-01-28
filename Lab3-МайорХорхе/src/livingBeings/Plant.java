@@ -15,7 +15,7 @@ public class Plant {
 
     public Plant(TypePlants type) {
         this.type = type;
-        this.dateOfBirth = new Date();
+        dateOfBirth = new Date();
     }
 
     public Plant(TypePlants type, String dateOfBirth) throws ParseException {
@@ -38,11 +38,11 @@ public class Plant {
     }
 
     public boolean hasFruits() {
-        return this.hasSprouted() && this.type.hasFruits();
+        return this.hasSprouted() && type.hasFruits();
     }
 
     public Food getFruit() {
-        return this.type.getFruit();
+        return type.getFruit();
     }
 
     public String toString() {

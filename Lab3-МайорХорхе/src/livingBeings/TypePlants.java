@@ -22,18 +22,18 @@ public enum TypePlants {
     }
 
     public int getDaysToSprout() {
-        return this.daysToSprout;
+        return daysToSprout;
     }
 
     public boolean hasFruits() {
-        return this.food != null;
+        return food != null;
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 
     public Food getFruit() {
-        return this.food;
+        return food;
     }
 }
