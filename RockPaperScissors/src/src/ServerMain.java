@@ -2,6 +2,7 @@ package src;
 
 import java.net.*;
 
+import network.ServerRequestHandler;
 import network.ServerUdpSocket;
 
 public class ServerMain {
@@ -23,6 +24,16 @@ public class ServerMain {
             }
             
 	        while (socket.getSocket().isBound()) {}
+	        
+	        final ServerRequestHandler requestManager = new ServerRequestHandler(socket);
+	        
+	        //create shutdown hook with anonymous implementation
+	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+	            requestManager.disconnect();
+	        }));
+
+	        requestManager.receiveFromWherever();
+	        
         } catch (Exception e) {
         	System.out.print("Error: " + e.getMessage());
         }

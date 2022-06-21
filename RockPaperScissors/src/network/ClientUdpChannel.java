@@ -69,11 +69,6 @@ public class ClientUdpChannel extends AbsUdpSocket {
         this.connected = connected;
     }
     
-    public void setConnectionToFalse() {
-        this.addressServer = null;
-        this.connected = false;
-    }
-    
     public boolean requestWasSent() {
         return requestSent;
     }
