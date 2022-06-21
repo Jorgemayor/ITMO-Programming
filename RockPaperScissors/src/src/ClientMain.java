@@ -24,7 +24,6 @@ public class ClientMain {
         }
         
         channel.tryToConnect(address);
-        
-        System.out.print("Connected to server: " + channel.isConnected() + "\n");
+        channel.sendCommand("Piedra");
 	}
 }

@@ -27,7 +27,6 @@ public class ServerMain {
 	        
 	        final ServerRequestHandler requestManager = new ServerRequestHandler(socket);
 	        
-	        //create shutdown hook with anonymous implementation
 	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 	            requestManager.disconnect();
 	        }));

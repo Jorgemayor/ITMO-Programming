@@ -20,9 +20,9 @@ public class ClientUdpChannel extends AbsUdpSocket {
     }
     
     public void tryToConnect(InetSocketAddress addressServer) {
+        System.out.println("Trying to reach the server...");
         this.addressServer = addressServer;
         sendCommand("connect");
-        System.out.println("Trying to reach the server...");
     }
     
     public void sendDatagram(ByteBuffer content) throws IOException {
