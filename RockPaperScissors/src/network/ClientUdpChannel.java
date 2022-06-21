@@ -37,12 +37,12 @@ public class ClientUdpChannel extends AbsUdpSocket {
         return ret;
     }
     
-    public void sendCommand(Object command) {
+    public void sendCommand(Object action) {
         try(ByteArrayOutputStream byteArrayStream = new ByteArrayOutputStream();
             ObjectOutputStream objectStream = new ObjectOutputStream(byteArrayStream)) {
 
-            objectStream.writeObject(command);
-            System.out.println("send object " + command);
+            objectStream.writeObject(action);
+            System.out.println("send action " + action);
             final ByteBuffer objectBuffer = ByteBuffer.wrap(byteArrayStream.toByteArray());
 
             sendDatagram(objectBuffer);
