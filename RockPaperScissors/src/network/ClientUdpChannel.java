@@ -23,13 +23,12 @@ public class ClientUdpChannel extends AbsUdpSocket {
         this.addressServer = addressServer;
         sendCommand("connect");
         System.out.println("Trying to reach the server...");
-        System.out.print("Trying to reach the server...");
     }
     
     public void sendDatagram(ByteBuffer content) throws IOException {
         channel.send(content, addressServer);
         this.requestSent = true;
-        System.out.print("sent datagram to " + addressServer);
+        System.out.println("sent datagram to " + addressServer);
     }
     
     public SocketAddress receiveDatagram(ByteBuffer buffer) throws IOException {
@@ -43,7 +42,7 @@ public class ClientUdpChannel extends AbsUdpSocket {
             ObjectOutputStream objectStream = new ObjectOutputStream(byteArrayStream)) {
 
             objectStream.writeObject(command);
-            System.out.print("send object " + command);
+            System.out.println("send object " + command);
             final ByteBuffer objectBuffer = ByteBuffer.wrap(byteArrayStream.toByteArray());
 
             sendDatagram(objectBuffer);

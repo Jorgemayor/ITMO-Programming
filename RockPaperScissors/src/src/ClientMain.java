@@ -23,6 +23,8 @@ public class ClientMain {
             System.exit(-1);
         }
         
+        channel.tryToConnect(address);
+        
         System.out.print("Connected to server: " + channel.isConnected() + "\n");
 	}
 }
